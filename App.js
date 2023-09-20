@@ -1,5 +1,6 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import axios from 'axios';
 
 // async function getMoviesFromApi() {
@@ -19,15 +20,12 @@ import axios from 'axios';
 export default function App() {
   return (
     <View style={styles.supercontainer}>
-      <View style={styles.container}>
-        <Text style={styles.quotetext}>Quote!</Text>
-        <Text style={styles.credittext}>--author!</Text>
+      <View style={styles.quotecontainer}>
+        <Text style={styles.quotetext}> "Adversity causes some men to break, others to break records." </Text>
+        <Text style={styles.credittext}>--- William Arthur Ward</Text>
       </View>
-      <View style={styles.container}>
-        <Text>Open up QUOTES!</Text>
-      </View>
-      <View style={styles.container}>
-        <Text>Open up QUOTES!</Text>
+      <View style={styles.buttoncontainer}>
+        <Button title="new" />
       </View>
     </View>
 
@@ -35,21 +33,19 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    borderColor: '#444',
-    borderWidth: 5,
-    flexDirection: 'column',
-    margin: 10,
-    padding: 10,
+  quotecontainer: {
     width: '80%',
-    backgroundColor: '#ddd',
+    borderColor: '#d9d',
+    borderWidth: 1,
+    flex: 1
   },
   supercontainer: {
-    margin: 40,
-    flexDirection: 'column',
+    paddingHorizontal: 40,
+    paddingVertical: 50,
+    flex: 1,
+    justifyContent: 'space-around',
     alignItems: 'center',
-    justifyContent: 'center',
-    alignContent: 'space-around'
+    backgroundColor: '#FFC107'
   },
   quotetext: {
     fontSize: 30,
@@ -58,5 +54,12 @@ const styles = StyleSheet.create({
   credittext: {
     fontStyle: 'italic',
     fontSize: 14
+  },
+  buttoncontainer: {
+    paddingHorizontal: 40,
+    paddingVertical: 50,
+    borderColor: '#f1f',
+    borderWidth: 1
+
   }
 });
