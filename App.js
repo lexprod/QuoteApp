@@ -25,7 +25,7 @@ export default function App() {
         <Text style={styles.credittext}>--- William Arthur Ward</Text>
       </View>
       <View style={styles.buttoncontainer}>
-        <Button title="new" />
+        <Button color='#636e72' title="new" />
       </View>
     </View>
 
@@ -37,29 +37,32 @@ const styles = StyleSheet.create({
     width: '80%',
     borderColor: '#d9d',
     borderWidth: 1,
-    flex: 1
+    flex: 5
   },
   supercontainer: {
     paddingHorizontal: 40,
     paddingVertical: 50,
     flex: 1,
-    justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#FFC107'
+    backgroundColor: '#fdcb6e'
   },
   quotetext: {
+    fontFamily: 'serif',
     fontSize: 30,
-    fontWeight: 'bold'
+    fontWeight: 'light',
   },
   credittext: {
     fontStyle: 'italic',
     fontSize: 14
   },
   buttoncontainer: {
-    paddingHorizontal: 40,
-    paddingVertical: 50,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    flexBasis: 100,
+    flex: 1,
+    padding: 2,
     borderColor: '#f1f',
     borderWidth: 1
-
   }
 });
