@@ -1,6 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
 import axios from 'axios';
 
 // async function getMoviesFromApi() {
@@ -25,7 +24,11 @@ export default function App() {
         <Text style={styles.credittext}>--- William Arthur Ward</Text>
       </View>
       <View style={styles.buttoncontainer}>
-        <Button color='#636e72' title="new" />
+        <Pressable>
+          <Text style={styles.buttontext}>
+            New quote plz
+          </Text>
+        </Pressable>
       </View>
     </View>
 
@@ -34,15 +37,16 @@ export default function App() {
 
 const styles = StyleSheet.create({
   quotecontainer: {
-    width: '80%',
-    borderColor: '#d9d',
-    borderWidth: 1,
-    flex: 5
+    backgroundColor: '#ffeaa7',
+    marginVertical: 20,
+    marginHorizontal: 10,
+    borderRadius: 30
   },
   supercontainer: {
-    paddingHorizontal: 40,
+    paddingHorizontal: 20,
     paddingVertical: 50,
     flex: 1,
+    flexDirection: 'column',
     alignItems: 'center',
     backgroundColor: '#fdcb6e'
   },
@@ -50,19 +54,28 @@ const styles = StyleSheet.create({
     fontFamily: 'serif',
     fontSize: 30,
     fontWeight: 'light',
+    marginTop: 10,
+    marginBottom: 10,
+    marginHorizontal: 20
   },
   credittext: {
     fontStyle: 'italic',
-    fontSize: 14
+    fontSize: 14,
+    marginBottom: 15,
+    marginHorizontal: 20
   },
   buttoncontainer: {
-    flexDirection: 'row',
+    width: '100%',
     justifyContent: 'center',
-    alignContent: 'center',
-    flexBasis: 100,
-    flex: 1,
-    padding: 2,
-    borderColor: '#f1f',
-    borderWidth: 1
+    margin: 50,
+    backgroundColor: '#ffeaa7',
+    height: 100,
+    borderRadius: 100
+  },
+  buttontext: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    textAlign: 'center'
   }
+
 });
