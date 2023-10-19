@@ -23,14 +23,14 @@ export default function App() {
         <Text style={styles.quotetext}> "Adversity causes some men to break, others to break records." </Text>
         <Text style={styles.credittext}>--- William Arthur Ward</Text>
       </View>
-      <View style={styles.buttoncontainer}>
-        <Pressable>
-          <Text style={styles.buttontext}>
-            New quote plz
-          </Text>
-        </Pressable>
-      </View>
-    </View>
+      <Pressable
+        style={({ pressed }) => [pressed ? styles.buttonpressed : styles.buttoncontainer
+        ]} >
+        <Text style={styles.buttontext}>
+          New quote plz
+        </Text>
+      </Pressable>
+    </View >
 
   );
 }
@@ -67,15 +67,31 @@ const styles = StyleSheet.create({
   buttoncontainer: {
     width: '100%',
     justifyContent: 'center',
-    margin: 50,
+    margin: 10,
     backgroundColor: '#ffeaa7',
     height: 100,
-    borderRadius: 100
+    borderRadius: 100,
+    borderWidth: 1
   },
   buttontext: {
     fontSize: 40,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+  },
+  buttonpressed: {
+    backgroundColor: '#ffeaa7',
+    borderColor: '#2d3436',
+    borderTopWidth: 8,
+    borderLeftWidth: 6,
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+    width: '100%',
+    justifyContent: 'center',
+    margin: 10,
+    height: 100,
+    borderRadius: 100,
+    marginTop: 14,
+    marginLeft: 12
   }
 
 });
