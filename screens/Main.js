@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Pressable, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 import axios from 'axios';
 import { useState } from 'react';
-import { useSelector } from "react-redux";
 import { QUOTES } from "../shared/quotes";
 
 const Main = () => {

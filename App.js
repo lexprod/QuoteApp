@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import Main from './screens/Main';
 import { Provider } from 'react-redux';
-import { store, persistor } from './redux/store';
 import { PersistState } from 'redux-persist/integration/react';
 import { PersistGate } from "redux-persist/integration/react";
 
@@ -22,11 +21,8 @@ import { PersistGate } from "redux-persist/integration/react";
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <Main />
-      </PersistGate>
-    </Provider>
+    <Main />
+
   );
 }
 
