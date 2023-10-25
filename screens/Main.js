@@ -4,37 +4,63 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useSelector } from "react-redux";
 import { QUOTES } from "../shared/quotes";
-import { AntDesign } from '@expo/vector-icons';
 
 const Main = () => {
 
-    const quotes = useSelector((state) => state.quotes);
+    const [quotes, setQuotes] = useState(QUOTES);
+    console.log(quotes);
+    const [displayQuote, setDisplayQuote] = useState(quotes[0]);
+    console.log(displayQuote);
 
     return (
-
         <View style={styles.supercontainer}>
-            <View style={styles.quotecontainer}>
-                <Text style={styles.quotetext}> "Adversity causes some men to break, others to break records." </Text>
-                <Text style={styles.credittext}>--- William Arthur Ward</Text>
-            </View>
+            {displayQuote && (
+                <View style={styles.quotecontainer}>
+
+                    <Text style={styles.quotetext}>{displayQuote.text} </Text>
+                    <Text style={styles.credittext}>{displayQuote.author}</Text>
+                </View>
+            )}
             <Pressable
+                onPress={() => {
+                    const newQuoteId = (displayQuote.id + 1) % quotes.length;
+                    setDisplayQuote(quotes[newQuoteId]);
+                    console.log(`trying to switch to quote ${newQuoteId}`);
+                }}
                 style={({ pressed }) => [pressed ? styles.buttonpressed : styles.buttonup
                 ]} >
                 <Text style={styles.buttontext}>
-                    New quote plz
+                    New one plz
                 </Text>
             </Pressable>
         </View >
+    )
+
+    // return (
+
+    //     <View style={styles.supercontainer}>
+    //         <View style={styles.quotecontainer}>
+    //             <Text style={styles.quotetext}> "Adversity causes some men to break, others to break records." </Text>
+    //             <Text style={styles.credittext}>--- William Arthur Ward</Text>
+    //         </View>
+    //         <Pressable
+    //             style={({ pressed }) => [pressed ? styles.buttonpressed : styles.buttonup
+    //             ]} >
+    //             <Text style={styles.buttontext}>
+    //                 New quote plz
+    //             </Text>
+    //         </Pressable>
+    //     </View >
 
 
-        // <Card.Title style={styles.cardTitle}>All Routines</Card.Title>
-        // <Card.Divider />
-        // <FlatList
-        //     data={routines}
-        //     renderItem={RenderRoutine}
-        //     keyExtractor={(item) => item.id}
+    // <Card.Title style={styles.cardTitle}>All Routines</Card.Title>
+    // <Card.Divider />
+    // <FlatList
+    //     data={routines}
+    //     renderItem={RenderRoutine}
+    //     keyExtractor={(item) => item.id}
 
-    );
+    // );
 }
 
 
@@ -106,7 +132,7 @@ const styles = StyleSheet.create({
         height: 100,
         borderRadius: 100,
         borderWidth: 1,
-        borderColor: '#2d3436',
+        borderColor: '#222',
         borderBottomWidth: 10,
         borderRightWidth: 10
     },
