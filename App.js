@@ -1,9 +1,5 @@
 import React from 'react';
-import axios from 'axios';
 import Main from './screens/Main';
-import { Provider } from 'react-redux';
-import { PersistState } from 'redux-persist/integration/react';
-import { PersistGate } from "redux-persist/integration/react";
 
 // async function getMoviesFromApi() {
 //   try {
