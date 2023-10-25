@@ -7,9 +7,11 @@ import { QUOTES } from "../shared/quotes";
 const Main = () => {
 
     const [quotes, setQuotes] = useState(QUOTES);
-    console.log(quotes);
     const [displayQuote, setDisplayQuote] = useState(quotes[0]);
-    console.log(displayQuote);
+
+    const handleAddQuotes = () => {
+
+    }
 
     return (
         <View style={styles.supercontainer}>
@@ -20,63 +22,50 @@ const Main = () => {
                     <Text style={styles.credittext}>{displayQuote.author}</Text>
                 </View>
             )}
-            <Pressable
-                onPress={() => {
-                    const newQuoteId = (displayQuote.id + 1) % quotes.length;
-                    setDisplayQuote(quotes[newQuoteId]);
-                    console.log(`trying to switch to quote ${newQuoteId}`);
-                }}
-                style={({ pressed }) => [pressed ? styles.buttonpressed : styles.buttonup
-                ]} >
-                <Text style={styles.buttontext}>
-                    New one plz
-                </Text>
-            </Pressable>
-        </View >
+            <View style={styles.buttonpanel}>
+                <Pressable
+                    onPress={() => {
+                        const newQuoteId = (displayQuote.id + 1) % quotes.length;
+                        setDisplayQuote(quotes[newQuoteId]);
+                    }}
+                    style={({ pressed }) => [pressed ? styles.buttonpressed : styles.buttonup
+                    ]} >
+                    <Text style={styles.buttontext}>
+                        New one plz
+                    </Text>
+                </Pressable>
+                <Pressable
+                    onPress={() => {
+
+                    }}
+                    style={({ pressed }) => [pressed ? styles.buttonpressed : styles.buttonup
+                    ]} >
+                    <Text style={styles.buttontext}>
+                        from api
+                    </Text>
+                </Pressable>
+            </View>
+        </View>
     )
-
-    // return (
-
-    //     <View style={styles.supercontainer}>
-    //         <View style={styles.quotecontainer}>
-    //             <Text style={styles.quotetext}> "Adversity causes some men to break, others to break records." </Text>
-    //             <Text style={styles.credittext}>--- William Arthur Ward</Text>
-    //         </View>
-    //         <Pressable
-    //             style={({ pressed }) => [pressed ? styles.buttonpressed : styles.buttonup
-    //             ]} >
-    //             <Text style={styles.buttontext}>
-    //                 New quote plz
-    //             </Text>
-    //         </Pressable>
-    //     </View >
-
-
-    // <Card.Title style={styles.cardTitle}>All Routines</Card.Title>
-    // <Card.Divider />
-    // <FlatList
-    //     data={routines}
-    //     renderItem={RenderRoutine}
-    //     keyExtractor={(item) => item.id}
-
-    // );
 }
 
 
 const styles = StyleSheet.create({
+    supercontainer: {
+        paddingHorizontal: 20,
+        paddingTop: 50,
+        paddingBottom: 15,
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#fdcb6e'
+    },
     quotecontainer: {
         backgroundColor: '#ffeaa7',
         marginVertical: 20,
         marginHorizontal: 10,
-        borderRadius: 30
-    },
-    supercontainer: {
-        paddingHorizontal: 20,
-        paddingVertical: 50,
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        backgroundColor: '#fdcb6e'
+        borderRadius: 30,
     },
     quotetext: {
         fontFamily: 'serif',
@@ -92,50 +81,41 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         marginHorizontal: 20
     },
-    buttoncontainer: {
+    buttonpanel: {
         width: '100%',
-        justifyContent: 'center',
-        margin: 10,
-        backgroundColor: '#ffeaa7',
-        height: 100,
-        borderRadius: 100,
-        borderWidth: 1
+        padding: 20,
+        flexDirection: 'column',
+        justifyContent: 'space-evenly',
     },
     buttontext: {
         fontSize: 40,
         fontWeight: 'bold',
         textAlign: 'center',
     },
-    buttonpressed: {
-        backgroundColor: '#ffeaa7',
-        borderColor: '#2d3436',
-        borderTopWidth: 8,
-        borderLeftWidth: 6,
-        borderRightWidth: 1,
-        borderBottomWidth: 1,
-        width: '100%',
-        justifyContent: 'center',
-        margin: 10,
-        height: 100,
-        borderRadius: 100,
-        marginTop: 14,
-        marginLeft: 12
-    },
     buttonup: {
         width: '100%',
         justifyContent: 'center',
-        margin: 10,
-        marginBottom: 20,
-        marginRight: 12,
         backgroundColor: '#ffeaa7',
         height: 100,
         borderRadius: 100,
         borderWidth: 1,
         borderColor: '#222',
         borderBottomWidth: 10,
-        borderRightWidth: 10
+        borderRightWidth: 10,
+        marginVertical: 10
     },
-
+    buttonpressed: {
+        backgroundColor: '#ffeaa7',
+        borderColor: '#2d3436',
+        borderWidth: 1,
+        borderTopWidth: 8,
+        borderLeftWidth: 6,
+        width: '100%',
+        justifyContent: 'center',
+        height: 100,
+        borderRadius: 100,
+        marginVertical: 10,
+    }
 });
 
 
